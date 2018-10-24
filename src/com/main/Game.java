@@ -9,28 +9,34 @@ public class Game {
 	Skill s2;
 	Timer t;
 	
-	void role(Hero a,Hero b)
+	void role(Hero a)
 	{
 		t.timegoby();
+	}
+	
+
+	void UseKill(Hero a)
+	{
 		
 	}
 	
 	void move(Hero s,int n)    //n Îª·½Ïò
-	//-2ÉÏ,-1ÏÂ,1×ó,2ÓÒ
+	//1ÉÏ,2ÏÂ,3×ó,4ÓÒ
 	{
-		if(n==2)
+		
+		if(n==4)
 		{
 			s.p.toRight();
 		}
-		else if(n==1)
+		else if(n==3)
 		{
 			s.p.toLeft();
 		}
-		else if(n==-2)
+		else if(n==1)
 		{
 			s.p.toUp();
 		}
-		else if(n==-1)
+		else if(n==2)
 		{
 			s.p.toDown();
 		}
@@ -50,11 +56,12 @@ public class Game {
 	}
 	
 	Game()
-	{
+	{	
+		s1 = new Skill (5,2,6,3);
+		s2 = new Skill (4,2,3,2);
 		a = new Hero('a',10,20,s1,4,0); 
 		b = new Hero('b',20,20,s2,4,39);
-		s1 = new Skill (5,2,6,3);
-		s1 = new Skill (4,2,3,2);
+		
 		
 		for(int i =0;i<9;i++)
 		{
@@ -73,6 +80,7 @@ public class Game {
 	}
 	*/
 	
+	
 	void show()
 	{
 		for(int i=0;i<9;i++)
@@ -82,7 +90,10 @@ public class Game {
 			System.out.println();
 		}
 		System.out.println("ÐÕÃû:"+a.name+" hp:"+a.hp+" mp:"+a.mp);
+		System.out.println("Ä§ºÄ:"+a.s.needmp+" ÀäÈ´:"+a.s.cd+" ·¶Î§:"+a.s.range+" ÉËº¦:"+a.s.damage);
+		System.out.println();
 		System.out.println("ÐÕÃû:"+b.name+" hp:"+b.hp+" mp:"+b.mp);
+		System.out.println("Ä§ºÄ:"+b.s.needmp+" ÀäÈ´:"+b.s.cd+" ·¶Î§:"+b.s.range+" ÉËº¦:"+b.s.damage);
 		System.out.println();	
 	}
 }

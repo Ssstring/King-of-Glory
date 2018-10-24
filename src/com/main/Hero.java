@@ -6,6 +6,7 @@ public class Hero {
 	int mp;		 //魔力值
 	Skill s;	 //技能
 	Pos p;
+	Timer t;
 	
 	public Hero(char n,int h,int m,Skill s,int x,int y) 
 	{
@@ -14,5 +15,6 @@ public class Hero {
 		mp = m;
 		this.s = s;
 		p = new Pos(x,y);
+		t = new Timer();
 	}
 }
