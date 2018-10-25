@@ -1,8 +1,8 @@
 package com.main;
 
 public class Pos {
-	int x;
-	int y;
+	int x;  		//ÐÐ
+	int y;			//ÁÐ
 	static int maxx = 8;
 	static int maxy = 40;
 	public Pos(int x,int y) {

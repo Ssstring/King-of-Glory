@@ -1,5 +1,12 @@
 package com.main;
 
+/*
+  * 未实现：
+ * 	
+ * 		检查是否存活
+ * 		魔力缓慢回复（2回合一点）
+ */
+
 public class Hero {
 	char name;
 	int hp;      //血量
@@ -17,4 +24,12 @@ public class Hero {
 		p = new Pos(x,y);
 		t = new Timer();
 	}
+	
+//	int check()       //存活状态检查
+//	{
+//		if(hp>0)
+//			return 1;
+//		return -1;
+//	}
+	
 }
