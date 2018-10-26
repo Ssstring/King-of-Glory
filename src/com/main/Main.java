@@ -10,7 +10,7 @@ public class Main {
 		Game g = new Game();
 		g.show();
 		System.out.println();
-		for(int i=0;i<20;i++)
+		for(int i=0;i<16;i++)
 		{
 			g.move(g.a, 4);
 			g.show();
@@ -30,11 +30,14 @@ public class Main {
 		g.move(g.b, 2);
 		g.show();
 		
-		for(int i=0;i<17;i++)
+		for(int i=0;i<11;i++)
 		{
 			g.move(g.b, 3);
 			g.show();
 		}
+		
+		g.move(g.a, 1);
+		g.show();
 		
 		g.UseKill(g.a, g.b);
 		g.show();

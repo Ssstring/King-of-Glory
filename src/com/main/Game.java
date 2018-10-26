@@ -5,11 +5,12 @@ package com.main;
  * 		回合限定：加入计时器，每回合只允许一次移动和一次技能释放
  * 		角色的死亡：
  * 		胜利条件判定：
+ * 		视觉效果升级：游戏安帧刷新，技能释放动画
  */
 
 public class Game {
 	
-	char [][]map = new char[9][40];
+	char [][]map = new char[9][25];
 	Hero a;
 	Hero b;
 	Skill s1;
@@ -57,7 +58,6 @@ public class Game {
 				if(map[i][j]==b.name)
 				{
 					isInRange = 1;
-					break;
 				}
 			}
 			System.out.println();
@@ -98,33 +98,40 @@ public class Game {
 	void move(Hero s,int n)    //n 为方向
 	//1上,2下,3左,4右
 	{
-		
+		char temp;
 		if(n==4)
 		{
-			s.p.toRight();
+			if(map[s.p.x][s.p.y+1]=='*')
+				s.p.toRight();
 		}
 		else if(n==3)
 		{
-			s.p.toLeft();
+			if(map[s.p.x][s.p.y-1]=='*')
+				s.p.toLeft();
 		}
 		else if(n==1)
 		{
-			s.p.toUp();
+			if(map[s.p.x-1][s.p.y]=='*')
+				s.p.toUp();
 		}
 		else if(n==2)
 		{
-			s.p.toDown();
+			if(map[s.p.x+1][s.p.y]=='*')
+				s.p.toDown();
 		}
 		
 		
-		for(int i =0;i<9;i++)
+		for(int i =0;i<Pos.maxx;i++)
 		{
-			for(int j=0;j<40;j++)
+			for(int j=0;j<Pos.maxy;j++)
 			{
 				if(map[i][j]==s.name)
 				{
-					map[i][j]='*';
-					map[s.p.x][s.p.y]=s.name;
+					
+					temp = map[i][j];
+					map[i][j]=map[s.p.x][s.p.y];
+					map[s.p.x][s.p.y]=temp;
+					
 				}
 			}
 		}
@@ -135,17 +142,17 @@ public class Game {
 		s1 = new Skill (5,2,6,3);
 		s2 = new Skill (4,2,3,2);
 		a = new Hero('a',10,20,s1,4,0); 
-		b = new Hero('b',20,20,s2,4,39);
+		b = new Hero('b',20,20,s2,4,Pos.maxy-1);
 		
 		
-		for(int i =0;i<9;i++)
+		for(int i =0;i<Pos.maxx;i++)
 		{
-			for(int j=0;j<40;j++)
+			for(int j=0;j<Pos.maxy;j++)
 				map[i][j]='*';
 		}
 		
 		map[4][0]=a.name;
-		map[4][39]=b.name;
+		map[4][Pos.maxy-1]=b.name;
 	}
 	
 	/*
@@ -158,10 +165,10 @@ public class Game {
 	
 	void show()
 	{
-		for(int i=0;i<9;i++)
+		for(int i=0;i<Pos.maxx;i++)
 		{
-			for(int j=0;j<40;j++)
-				System.out.print(map[i][j]);
+			for(int j=0;j<Pos.maxy;j++)
+				System.out.print(map[i][j]+" ");
 			System.out.println();
 		}
 		System.out.println("姓名:"+a.name+" hp:"+a.hp+" mp:"+a.mp);
