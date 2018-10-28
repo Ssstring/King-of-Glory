@@ -1,14 +1,36 @@
 package com.main;
 
+/**
+ * 位置
+ * @author wulu
+ *
+ */
+
+
 public class Pos {
-	int x;  		//行
-	int y;			//列
+	/**
+	 * 行数
+	 */
+	int x;  		
+	/**
+	 * 列数
+	 */
+	int y;			
+	/**
+	 * 最大行数（取决于地图大小）
+	 */
 	static int maxx = 9;
+	/**
+	 * 最大列数（取决于地图大小）
+	 */
 	static int maxy = 25;
+	
+	
 	public Pos(int x,int y) {
 		this.x = x;
 		this.y = y;
 	}
+	
 	
 	void toLeft()
 	{

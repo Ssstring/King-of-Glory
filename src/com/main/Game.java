@@ -5,24 +5,60 @@ package com.main;
  * 		回合限定：加入计时器，每回合只允许一次移动和一次技能释放
  * 		角色的死亡：
  * 		胜利条件判定：
- * 		视觉效果升级：游戏安帧刷新，技能释放动画
+ * 		视觉效果升级：游戏按帧刷新，技能释放动画
  */
 
-public class Game {
-	
+
+/**
+ * 战场控制类
+ * @author wulu
+ * @version 0.3
+ */
+
+public class Game {	
+	/**
+	 * 地图
+	 */
 	char [][]map = new char[9][25];
+	/**
+	 * 英雄1
+	 * @see Hero
+	 */
 	Hero a;
+	/**
+	 * 英雄2
+	 * @see Hero
+	 */
 	Hero b;
+	/**
+	 * 技能一
+	 * @see Skill
+	 */
 	Skill s1;
+	/**
+	 * @see Skill
+	 */
 	Skill s2;
+	/**
+	 * 计时器
+	 * @see Timer
+	 */
 	Timer t;
 	
+	/**
+	 * 此方法未完善
+	 * @param a  增正在操作的英雄
+	 */
 	void role(Hero a)
 	{
 		t.timegoby();
 	}
 	
-
+	/**
+	 * 此方法的作用为使用英雄技能.
+	 * @param a  释放技能的英雄
+	 * @param b	 承受技能的英雄
+	 */
 	void UseKill(Hero a,Hero b)
 	{
 		int r = a.s.range;
@@ -95,9 +131,15 @@ public class Game {
 		
 	}
 	
-	void move(Hero s,int n)    //n 为方向
-	//1上,2下,3左,4右
+	/**
+	 * 此方法控制英雄移动
+	 * @param s  进行移动动作的英雄
+	 * @param n	 移动的方向   1上,2下,3左,4右
+	 * @see Pos
+	 */
+	void move(Hero s,int n)    //n 为方向	
 	{
+		
 		char temp;
 		if(n==4)
 		{
@@ -137,6 +179,9 @@ public class Game {
 		}
 	}
 	
+	/**
+	 * 此方法为构造方法（未完善）
+	 */
 	Game()
 	{	
 		s1 = new Skill (5,2,6,3);
@@ -162,7 +207,9 @@ public class Game {
 	}
 	*/
 	
-	
+	/**
+	 * 此方法展示战场
+	 */
 	void show()
 	{
 		for(int i=0;i<Pos.maxx;i++)

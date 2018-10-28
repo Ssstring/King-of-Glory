@@ -5,6 +5,11 @@ package com.main;
  * 		写好注释：做好对javadoc的支持
  */
 
+/**
+ * 主函数
+ * @author WULU
+ */
+
 public class Main {
 	public static void main(String[] args) {
 		Game g = new Game();
