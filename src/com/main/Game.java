@@ -143,22 +143,22 @@ public class Game {
 		char temp;
 		if(n==4)
 		{
-			if(map[s.p.x][s.p.y+1]=='*')
+			if(map[s.p.x][s.p.y+1]=='*'||map[s.p.x][s.p.y+1]=='#')
 				s.p.toRight();
 		}
 		else if(n==3)
 		{
-			if(map[s.p.x][s.p.y-1]=='*')
+			if(map[s.p.x][s.p.y-1]=='*'||map[s.p.x][s.p.y-1]=='#')
 				s.p.toLeft();
 		}
 		else if(n==1)
 		{
-			if(map[s.p.x-1][s.p.y]=='*')
+			if(map[s.p.x-1][s.p.y]=='*'||map[s.p.x-1][s.p.y]=='#')
 				s.p.toUp();
 		}
 		else if(n==2)
 		{
-			if(map[s.p.x+1][s.p.y]=='*')
+			if(map[s.p.x+1][s.p.y]=='*'||map[s.p.x-1][s.p.y]=='#')
 				s.p.toDown();
 		}
 		
@@ -190,11 +190,28 @@ public class Game {
 		b = new Hero('b',20,20,s2,4,Pos.maxy-1);
 		
 		
+		
 		for(int i =0;i<Pos.maxx;i++)
 		{
 			for(int j=0;j<Pos.maxy;j++)
 				map[i][j]='*';
+			
+			
 		}
+		
+//		
+//		map[3][0]='#';
+//		map[3][1]='#';
+//		map[4][1]='#';
+//		map[5][0]='#';
+//		map[5][1]='#';
+//		
+//		map[3][Pos.maxy-1]='#';
+//		map[3][Pos.maxy-1-1]='#';
+//		map[4][Pos.maxy-1-1]='#';
+//		map[5][Pos.maxy-1]='#';
+//		map[5][Pos.maxy-1-1]='#';
+//		
 		
 		map[4][0]=a.name;
 		map[4][Pos.maxy-1]=b.name;
@@ -214,6 +231,7 @@ public class Game {
 	{
 		for(int i=0;i<Pos.maxx;i++)
 		{
+
 			for(int j=0;j<Pos.maxy;j++)
 				System.out.print(map[i][j]+" ");
 			System.out.println();

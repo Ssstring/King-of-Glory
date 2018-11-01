@@ -19,7 +19,7 @@ public class Main {
 		{
 			g.move(g.a, 4);
 			g.show();
-		}
+		} 
 		g.move(g.a, 3);
 		g.show();
 		
