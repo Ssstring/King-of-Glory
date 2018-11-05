@@ -3,6 +3,7 @@ package com.main;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 public class MouseDemo
 {
     //定义该图形中所需的组件的引用
@@ -61,11 +62,12 @@ public class MouseDemo
         {
             public void actionPerformed(ActionEvent e)
             {
-            	System.out.println("游戏结束");
-            	System.exit(0);
+            	
                  //System.out.println("按钮活动了！");
             }
         });
+        
+        
         
         bt.addMouseListener(new MouseAdapter()//鼠标监听
         {
@@ -82,8 +84,12 @@ public class MouseDemo
                    System.out.println("鼠标被双击了");
                 else
                 	{
-                		Main m = new Main();
-                		m.main(null);
+                		try {
+							Replay.main(null);
+						} catch (IOException e1) {
+							// TODO 自动生成的 catch 块
+							e1.printStackTrace();
+						}
                 		//System.out.println("鼠标被点击"+mouseCount++);
                 	}
             }
@@ -104,11 +110,14 @@ public class MouseDemo
                    System.out.println("鼠标被双击了");
                 else
                 	{
+                		System.out.println("游戏结束");
                 		System.exit(0);
                 		//System.out.println("鼠标被点击"+mouseCount++);
                 	}
             }
         });
+        
+        
     }
     
     

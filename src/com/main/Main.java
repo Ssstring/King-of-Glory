@@ -57,6 +57,7 @@ public class Main {
 			}
 			g.show();
 		}
+		scan.close();
 		
 /*
 		for(int i=0;i<16;i++)
