@@ -36,7 +36,6 @@ public class Pos {
 	{
 		if(y-1>=0)
 			y=y-1;
-		
 	}
 	
 	void toRight()

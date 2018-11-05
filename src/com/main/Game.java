@@ -143,23 +143,39 @@ public class Game {
 		char temp;
 		if(n==4)
 		{
-			if(map[s.p.x][s.p.y+1]=='*'||map[s.p.x][s.p.y+1]=='#')
-				s.p.toRight();
+			if(s.p.y+1<Pos.maxy)
+			{
+				if(map[s.p.x][s.p.y+1]=='*'||map[s.p.x][s.p.y+1]=='#')
+					s.p.toRight();
+			}
+			
 		}
 		else if(n==3)
 		{
-			if(map[s.p.x][s.p.y-1]=='*'||map[s.p.x][s.p.y-1]=='#')
-				s.p.toLeft();
+			if(s.p.y-1>=0)
+			{
+				if(map[s.p.x][s.p.y-1]=='*'||map[s.p.x][s.p.y-1]=='#')
+					s.p.toLeft();
+			}
+			
 		}
 		else if(n==1)
 		{
-			if(map[s.p.x-1][s.p.y]=='*'||map[s.p.x-1][s.p.y]=='#')
-				s.p.toUp();
+			if(s.p.x-1>=0)
+			{
+				if(map[s.p.x-1][s.p.y]=='*'||map[s.p.x-1][s.p.y]=='#')
+					s.p.toUp();
+			}
+			
 		}
 		else if(n==2)
 		{
-			if(map[s.p.x+1][s.p.y]=='*'||map[s.p.x-1][s.p.y]=='#')
-				s.p.toDown();
+			if(s.p.x+1<Pos.maxx)
+			{
+				if(map[s.p.x+1][s.p.y]=='*'||map[s.p.x+1][s.p.y]=='#')
+					s.p.toDown();
+			}
+			
 		}
 		
 		

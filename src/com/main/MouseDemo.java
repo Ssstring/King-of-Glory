@@ -61,7 +61,8 @@ public class MouseDemo
         {
             public void actionPerformed(ActionEvent e)
             {
-            	
+            	System.out.println("游戏结束");
+            	System.exit(0);
                  //System.out.println("按钮活动了！");
             }
         });
